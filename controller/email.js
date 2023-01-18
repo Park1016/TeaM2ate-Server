@@ -53,15 +53,15 @@ export async function checkAuthNum(req, res) {
   const checkValidTime = await emailRepository.checkValidTime(
     response.validTime
   );
-  if (
-    parseInt(checkValidTime.split(":")[1]) >= 3 ||
-    parseInt(checkValidTime.split(":")[0]) > 0
-  ) {
-    res.status(408).json({
-      message: "인증번호의 유효기간이 지났습니다. 다시 인증요청해주세요.",
-    });
-    return;
-  }
+  // if (
+  //   parseInt(checkValidTime.split(":")[1]) >= 3 ||
+  //   parseInt(checkValidTime.split(":")[0]) > 0
+  // ) {
+  //   res.status(408).json({
+  //     message: "인증번호의 유효기간이 지났습니다. 다시 인증요청해주세요.",
+  //   });
+  //   return;
+  // }
   if (response) {
     const isValidPassword = await bcrypt.compare(authNum, response.authNum);
     if (isValidPassword) {

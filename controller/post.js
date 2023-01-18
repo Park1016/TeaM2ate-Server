@@ -29,7 +29,7 @@ export async function write(req, res) {
     tag,
     type
   );
-  await userRepository.addList(req.userId, "post", post.id);
+  await userRepository.addList(req.userId, "post", post._id);
   return res.status(201).json(post);
 }
 
@@ -84,4 +84,10 @@ export async function remove(req, res) {
   await postRepository.remove(id);
   await userRepository.removeList(req.userId, "post", post.id);
   return res.sendStatus(204);
+}
+
+export async function getPostByBookmark(req, res) {
+  const username = req.params.username;
+  const data = await postRepository.getPostByBookmark(username);
+  res.status(200).json(data);
 }

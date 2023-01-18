@@ -166,11 +166,11 @@ export async function checkPw(req, res) {
   }
 }
 
-export async function getPostByBookmark(req, res) {
-  const username = req.params.username;
-  const data = await userRepository.getPostByBookmark(username);
-  res.status(200).json(data);
-}
+// export async function getPostByBookmark(req, res) {
+//   const username = req.params.username;
+//   const data = await postRepository.getPostByBookmark(username);
+//   res.status(200).json(data);
+// }
 
 function createRefreshJwtToken(id) {
   return jwt.sign({ id }, config.jwt.secretKey, {

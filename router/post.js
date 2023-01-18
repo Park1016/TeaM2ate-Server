@@ -73,4 +73,6 @@ router.delete(
   postController.remove
 );
 
+router.get("/post/:username", [isAuth], postController.getPostByBookmark);
+
 export default router;
