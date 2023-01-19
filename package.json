@@ -1,5 +1,5 @@
 {
-  "name": "devs_space",
+  "name": "server",
   "version": "1.0.0",
   "description": "platform for finding project teams",
   "main": "app.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Park1016/Devs_Space.git"
+    "url": "git+https://github.com/Park1016/TeaM2ate-Server.git"
   },
   "author": "park",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Park1016/Devs_Space/issues"
+    "url": "https://github.com/Park1016/TeaM2ate-Server/issues"
   },
-  "homepage": "https://github.com/Park1016/Devs_Space#readme",
+  "homepage": "https://github.com/Park1016/TeaM2ate-Server#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",

@@ -26,7 +26,7 @@ export async function sendEmail(req, res) {
     to: email,
     subject: "가입 인증 메일",
     html: `
-      <h2>Devs_space 회원가입 인증절차</h2>
+      <h2>TeaM2ate 회원가입 인증절차</h2>
       <p>회원가입을 위해 이메일 인증절차가 필요합니다.</p><br/>
       <p>아래의 인증번호를 이메일 인증번호 입력란에 입력해주시기 바랍니다</p><br/>
       <p>인증번호는 발송된 시점부터 3분간 유효합니다.</p><br/><br/>
