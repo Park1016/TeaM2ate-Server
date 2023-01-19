@@ -6,13 +6,13 @@ import * as userRepository from "./user.js";
 export async function getByUsername(username) {
   return db
     .execute("SELECT * FROM comment WHERE username=?", [username]) //
-    .then((result) => result[0]);
+    .then((result) => result);
 }
 
 export async function getByPostId(postId) {
   return db
     .execute("SELECT * FROM comment WHERE postId=?", [postId]) //
-    .then((result) => result[0]);
+    .then((result) => result);
 }
 
 export async function getPostByComment(username) {
@@ -27,14 +27,14 @@ export async function getPostByComment(username) {
     if (err) throw err;
     result;
   });
-  const data = { post: res[0], comment };
+  const data = { post: res, comment };
   return data;
 }
 
 export async function getById(id) {
   return db
     .execute("SELECT * FROM comment WHERE id=?", [id]) //
-    .then((result) => result[0][0]);
+    .then((result) => result[0]);
 }
 
 export async function create(postId, text, url, userId, username) {
@@ -43,7 +43,7 @@ export async function create(postId, text, url, userId, username) {
       "INSERT INTO comment (postId, text, createdAt, url, userId, username) VALUES(?,?,?,?,?,?)",
       [postId, text, new Date(), url, userId, username]
     )
-    .then(async (result) => await getById(result[0].insertId));
+    .then(async (result) => await getById(result.insertId));
 }
 
 export async function update(id, text) {

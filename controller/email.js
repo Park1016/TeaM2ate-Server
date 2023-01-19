@@ -64,6 +64,7 @@ export async function checkAuthNum(req, res) {
   }
   if (response) {
     const isValidPassword = await bcrypt.compare(authNum, response.authNum);
+    console.log("????/", isValidPassword);
     if (isValidPassword) {
       res.status(200).json(response.data);
     } else {

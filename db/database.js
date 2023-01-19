@@ -1,11 +1,12 @@
-﻿import mysql from 'mysql2';
-import { config } from '../config.js';
+﻿import mariadb from "mariadb";
+import { config } from "../config.js";
 
-const pool = mysql.createPool({
-    host: config.db.host,
-    user: config.db.user,
-    database: config.db.database,
-    password: config.db.password,
+const pool = mariadb.createPool({
+  host: config.db.host,
+  user: config.db.user,
+  database: config.db.database,
+  password: config.db.password,
+  port: config.db.port,
 });
 
-export const db = pool.promise();
+export const db = await pool.getConnection();

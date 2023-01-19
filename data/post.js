@@ -6,13 +6,13 @@ import { db } from "../db/database.js";
 export async function getByUsername(username) {
   return db
     .execute("SELECT * FROM post WHERE username=?", [username]) //
-    .then((result) => result[0]);
+    .then((result) => result);
 }
 
 export async function getById(id) {
   return db
     .execute("SELECT * FROM post WHERE id=?", [id]) //
-    .then((result) => result[0][0]);
+    .then((result) => result[0]);
 }
 
 export async function create(
@@ -43,7 +43,7 @@ export async function create(
         JSON.stringify([]),
       ]
     )
-    .then(async (result) => await getById(result[0].insertId));
+    .then(async (result) => await getById(result.insertId));
 }
 
 export async function addList(id, column, value) {

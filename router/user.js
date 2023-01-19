@@ -64,7 +64,7 @@ router.post("/email", sendEmaillimiter, emailController.sendEmail);
 
 router.post("/checkAuthNum", authNumlimiter, emailController.checkAuthNum);
 
-router.get("/post/:username", [isAuth], userController.getPostByBookmark);
+router.get("/post/:id", [isAuth], userController.getPostByBookmark);
 
 router.put(
   "/update/:id",

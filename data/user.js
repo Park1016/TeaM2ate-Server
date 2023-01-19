@@ -5,19 +5,19 @@ import { db } from "../db/database.js";
 export async function getById(id) {
   return db
     .execute("SELECT * FROM user WHERE id=?", [id]) //
-    .then((result) => result[0][0]);
+    .then((result) => result[0]);
 }
 
 export async function getByUsername(username) {
   return db
     .execute("SELECT * FROM user WHERE username=?", [username]) //
-    .then((result) => result[0][0]);
+    .then((result) => result[0]);
 }
 
 export async function getByEmail(email) {
   return db
     .execute("SELECT * FROM user WHERE email=?", [email]) //
-    .then((result) => result[0][0]);
+    .then((result) => result[0]);
 }
 
 export async function signUp(user) {
@@ -45,7 +45,7 @@ export async function signUp(user) {
         JSON.stringify([]),
       ]
     )
-    .then((result) => result[0].insertId);
+    .then((result) => result.insertId);
 }
 
 export async function addList(userId, column, value) {
@@ -99,8 +99,8 @@ export async function removeList(userId, column, value) {
     .then(async () => await getById(userId));
 }
 
-export async function getPostByBookmark(username) {
-  const user = await getByUsername(username);
+export async function getPostByBookmark(id) {
+  const user = await getById(id);
   const bookmark = user.bookmark;
 
   if (bookmark.length === 0) {
@@ -112,5 +112,5 @@ export async function getPostByBookmark(username) {
     if (err) throw err;
     result;
   });
-  return res[0];
+  return res;
 }

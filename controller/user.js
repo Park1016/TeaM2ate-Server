@@ -62,7 +62,7 @@ export async function remove(req, res) {
 
 export async function signup(req, res) {
   const { name, username, password, email, url } = req.body;
-  // 사용자가 기존에 이미 있는지 없는지 확인
+  //사용자가 기존에 이미 있는지 없는지 확인
   const foundUsername = await userRepository.getByUsername(username);
   const foundEmail = await userRepository.getByEmail(email);
   // 이미 있는 username이면 return
@@ -167,8 +167,8 @@ export async function checkPw(req, res) {
 }
 
 export async function getPostByBookmark(req, res) {
-  const username = req.params.username;
-  const data = await userRepository.getPostByBookmark(username);
+  const id = req.params.id;
+  const data = await userRepository.getPostByBookmark(id);
   res.status(200).json(data);
 }
 

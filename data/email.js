@@ -24,9 +24,9 @@ export async function update(email, authNum) {
 }
 
 export async function getByEmail(email) {
-  return db
-    .execute("SELECT * FROM email WHERE email=?", [email]) //
-    .then((result) => result[0][0]);
+  const sql = "SELECT * FROM email WHERE email=?";
+  const res = await db.query(sql, [email]);
+  return res[0];
 }
 
 export async function checkValidTime(time) {
@@ -35,5 +35,5 @@ export async function checkValidTime(time) {
     if (err) throw err;
     result;
   });
-  return Object.values(res[0][0])[0];
+  return Object.values(res[0])[0];
 }
