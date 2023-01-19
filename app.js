@@ -30,7 +30,7 @@ app.use(cors(corsOption));
 app.use(morgan("tiny"));
 app.use(upload.array());
 
-app.use(csrfCheck);
+// app.use(csrfCheck);
 app.use("/board", boardRouter);
 app.use("/post", postRouter);
 app.use("/comment", commentRouter);
